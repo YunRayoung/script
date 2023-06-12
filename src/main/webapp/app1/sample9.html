@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	// 함수의 매개변수
+	function test1(p1, p2, p3) {
+		console.log(p1, p2, p3);
+		console.log(arguments);
+		console.log("------------------");
+	}
+	
+	test1();
+	test1(10);
+	test1(10, 20);
+	test1(10, 20, 30);
+	test1(10, 20, 30, 40);
+	test1(10, 20, 30, 40, 50);
+	
+	// 매개변수에 기본값을 지정할 수 있다.
+	function test2(price, amount = 1) {
+		console.log(price, amount);
+	}
+	test2(3000);
+	test2(3000, 5);
+	
+	function test3(price, amount) {
+		// || 연산자의 특성을 이용해서 amount가 undefined일 때 1이 기본값으로 대입된다.
+		amount = amount || 1;
+		console.log(price, amount);
+	}
+	test2(5000);
+	test3(5000, 10);
+</script>
+</body>
+</html>

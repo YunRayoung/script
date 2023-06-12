@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>콜백함수 연습</h1>
+
+	<p>
+		<button id="btn-1">버튼1</button>
+		<button id="btn-2">버튼2</button>
+		<button id="btn-3">버튼3</button>
+	</p>
+		
+<script type="text/javascript">
+	 // 함수의 형태
+	 // 	- 즉시 실행함수
+	 //   	- 내부함수
+	 // 	- 콜백함수
+	 
+	 // 즉시 실행함수
+	 // 	함수의 정의와 동시에 실행되는 함수다.
+	 // 	최초 한번만 호출되면 다시 호출할 수 없는 함수다.
+	 // 	이러한 특징 때문에 최초 한번만 실행이 필요한 초기화 처리에 사용된다.
+	 (function() {
+		console.log("즉시 실행함수가 실행됨...") 
+	 })();
+	 
+	 (function(x, y, z) {
+		console.log("즉시 실행함수가 실행됨...") 
+		console.log(x, y, z); 
+	 })(10, 'c:\temp', 1024*1024*5);
+	 
+	 
+	 // 콜백 함수
+	 // 	함수를 명시적으로 호출하는 것이 아니라, 특정 이벤트가 발생했을 때 
+	 //		시스템에 의해 호출되는 함수다.
+	 
+	 // document - HTML 문서를 표현하는 객체다. Document객체를 참조한다.
+	 // querySelector(selector) 지정된 선택자 표현식에 해당하는 엘리먼트객체(태그)를 반환한다.
+	 let button1 = document.querySelector("#btn-1");
+	 let button2 = document.querySelector("#btn-2");
+	 let button3 = document.querySelector("#btn-3");
+	 
+	 // 버튼에 콜백함수 등록하기
+	 // ㅁaddEventListener(이벤트명, 콜백함수)
+	 // 엘리먼트(태그) 에서 지정된 이벤트가 발생할 때 실행할 콜백함수를 등록한다.
+	 button1.addEventListener('click', function() {
+		 console.log("버튼1이 클릭되었습니다.")
+	 });
+	 button2.addEventListener('click', function() {
+		 console.log("버튼2이 클릭되었습니다.")
+	 });
+	 button3.addEventListener('click', function() {	
+		 console.log("버튼3이 클릭되었습니다.")});
+	 
+	 // 실행주기 // 1000 = 1초
+	 // setInterval(콜백함수, 실행주기)
+	 // 지정된 실행주기마다 콜백함수를 실행시킨다.
+	 setInterval(function() {
+		console.log(new Date().toLocaleString());	 
+	 }, 1000);
+</script>
+</body>
+</html>

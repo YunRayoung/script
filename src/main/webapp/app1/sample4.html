@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	// 자바스크립트의 리터럴
+	
+	// 숫자 리터럴 
+	let a = 10;
+	let b = 12.345;
+	
+	// 문자 리터럴
+	let c = "홍길동";
+	let d = "안녕하세요";
+	let e = `
+		안녕하세요.
+		반갑습니다.
+		나는 홍길동입니다.
+	`;
+	console.log(c);
+	console.log(d);
+	console.log(e);
+	
+	// 불린 리터럴
+	let f = false;
+	let g = true;
+	
+	// 널 리터럴
+	let h = null;
+	
+	// undefined 리터럴
+	let i = undefined;
+	
+	// 배열 리터럴
+	// 데이터 타입이 달라도 상관없다.(자바는 같아야함)
+	let j = [10, 20, 30];
+	let k = [10, 20, "김유신", "강감찬", 3.14];
+	let k1 = ["김유신", '기계공학과', 1, 3.5, true];
+	console.log(j);
+	console.log(k);
+	console.log(k1);
+	
+	// 객체 리터럴
+	// name:value 형식으로 담는 것을 객체라고한다.(구성요소(property))-자바 스크립트
+	// 자바의 Map과 유사함.
+	let l = {name:"김유신", dept:"기계공학과", grade:1, score:3.5, passed:true};
+	console.log(l);
+
+	// 함수 리터럴
+	function m() {
+		// 수행문;
+		// 수행문;
+	}
+	console.log(typeof(m), m);
+</script>
+</body>
+</html>

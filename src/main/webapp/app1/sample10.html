@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	/*
+  		자바스크립트 함수의 반환값
+ 			함수는 return 키워드를 이용해서 함수를 호출한 측에게 값을 반환한다.
+ 			함수는 반환을 생략할 수 있으며, 이 경우가 기본값으로 undefined가 반환된다.
+ 			return문을 만나면 함수의 실행을 중단하고, 이 함수를 호출한 측으로 되돌아간다.
+ 			
+ 			*자바스크립트의 함수는 일급시민이다.
+ 				- 리터럴로 표현할 수 있다.
+ 				- 변수나 자료구조에 저장할 수 있다.
+ 				- 함수의 매개변수로 전달할 수 있다.
+ 				- 반환값으로 사용할 수 있다.
+ 	*/
+ 	
+ 	// retrun문이 없는 함수는 undefined값을 반환한다.
+	function test1() {
+		console.log("test1() 함수가 실행됨");
+	}
+	let result1 = test1();
+		console.log("반환값1", result1);
+	
+	// 기본자료형 타입의 값, 배열 혹은 객체를 반환할 수 있다.
+	function test2() {
+		console.log("test2() 함수가 실행됨");
+		return 10;
+	}
+	
+	function test3() {
+		console.log("test3() 함수가 실행됨");
+		let values = [10, 20, 30];			// 배열리터럴
+		return values;
+	}
+	
+	function test4() {
+		console.log("test4() 함수가 실행됨");
+		return {
+			name:"홍길동",					// 객체리터럴
+			dept:"전자공학과",
+			grade:3
+		};
+	}
+	let result2 = test2();
+	let result3 = test3();
+	let result4 = test4();
+	console.log("반환값2", result2);
+	console.log("반환값3", result3, result3[0], result3[1], result3[2]);
+	console.log("반환값4", result4, result4.name, result4.dept, result4.grade);
+	
+	//함수를 반환값으로 반환하는 함수
+	// 함수안에서 함수를 정의하는 것 (내부함수)
+	function test5(op) {
+		let plus = function(num1, num2) {
+			return num1 + num2;
+		}
+		let minus = function(num1, num2) {
+			return num1 - num2;
+		}
+		
+		if ("더하기" === op) {
+			return plus;
+		} else if ("빼기" === op) {
+			return minus;
+		}
+	}
+	let result5 = test5("더하기");
+	let value1 = result5(100, 20);	
+	console.log(value1);
+	
+	let result6 = test5("빼기");
+	let value2 = result5(100, 20);	
+	console.log(value2);
+</script>
+</body>
+</html>

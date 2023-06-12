@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>DOM 실습</h1>
+	
+	<div id="box-1">
+		<p>첫번째 내용</p>
+		<p>두번째 내용</p>
+		<p>세번째 내용</p>
+	</div>
+
+
+<script type="text/javascript">
+/*
+ * 	document.querySelector("선택자")
+ 		- 선택자와 일치하는 엘리먼트 중에서 첫번째 엘리먼트를 반환한다.
+ 		- 일치하는 엘리먼트가 없으면 null이 반환된다.
+ 	document.guerySelectorAll("선택자")
+ 		- 선택자와 일치하는 모든 엘리먼트를 NodeList에 담아서 반환한다.
+ 		- 선택자와 일치하는 엘리먼트가 없어도 빈 NodeList가 반환된다.
+ 		
+ 		document.getElementById("아이디값")
+ 			- 아이디값이 일치하는 엘리먼트중에서 첫번째 엘리먼트를 반환한다.
+ 			- 일치하는 엘리먼트가 없으면 null이 반환된다.
+ 		doucment.getElemnetsByTagName("태그명")
+ 			- 태그명이 일치하는 모든 엘리먼트를 HTMLCollection에 담아서 반환한다.
+ 			- 일치하는 엘리먼트가 없으면 빈 HTMLCollection이 반환된다.
+ */
+	// 태그의 텍스트 컨텐츠 조회/변경하기
+	
+	// h1 태그의 텍스트 컨텐츠를 조회하기
+	function fn1() {
+		// 엘리먼트 선택하기
+		let element = document.querySelector("h1");
+		console.log(element);
+		// 엘리먼트의 텍스트 컨텐츠 조회하기
+		let content = element.textContent;
+		console.log("텍스트 컨텐츠 -> ", content);
+	}
+		// h1태그의 텍스트 컨텐츠 변경하기
+		function fn2(text) {
+			// 엘리먼트 선택하기
+			// 배열
+			
+			let elements = document.getElementsByTagName("h1");
+			let element = elements[0];
+			
+			// 엘리먼트의 텍스트 컨텐츠 변경하기
+			element.textContent = text;
+			
+		}
+		
+		// 모든 p 엘리먼트의 텍스트 컨텐츠 조회하기
+		function fn3() {
+			// 모든 p 엘리먼트 선택하기
+			let elements = document.querySelectorAll("p");
+			console.log(elements);
+			
+			
+			// NodeList의 forEach(콜백) 메소드로 Nod로 NodeList객체에 담겨있는
+			// 모든 Element객체를 조회하기 
+			elements.forEach(function(el, index) {
+				//console.log(index, el);
+				console.log(el.textContent);
+			})
+		}
+		
+		// 모든 p 엘리먼트의 텍스트 컨텐츠를 변경하기
+		function fn4(text) {
+			// 모든 p 엘리먼트 선택하기
+			let elements = document.querySelectorAll("p");
+			
+			elements.forEach(function(el, index) {
+				el.textContent = text;
+			})
+			
+		}
+
+</script>
+</body>
+</html>

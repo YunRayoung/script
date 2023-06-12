@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	// 자바스크립트의 내장객체
+	/*
+		Object 객체
+			- 모든 객체의 부모객체다.
+		Function 객체
+			- 자바스크립트의 함수를 표현하는 객체다.
+		Number 객체
+			- 숫자를 표현하는 객체다
+			- 숫자 처리와 관련된 유용한 기능을 제공하는 객체다.
+		Math 객체
+			- 수학연산과 관련된 유용한 기능을 제공하는 객체다.
+			- 삼각함수, 반올림, 제곱근 등...
+		Date 객체
+			- 날짜와 시간 정보를 표현하는 객체다.
+			- 날짜와 관련된 유용한 기능을 제공하는 객체다.
+		String 객체
+			- 문자열을 표현하는 객체다.
+			- 문자열과 관련된 유용한 기능을 제공하는 객체다.
+		Array 객체
+			- 배열을 표현하는 객체다.
+			- 배열과 관련된 다양한 기능을 제공하는 객체다.
+		RegExp 객체
+			- 정규표현식과 관련된 객체다.
+			- 문자열에 특정한 내용을 찾거나 대체 또는 발체하는 기능을 제공한다.
+		Error 객체(예외객체)
+			- 예외정보를 표현하는 객체다.
+			- 예외처리에 활용된다.
+	*/
+
+	
+	// Number 객체
+	// 	생성자 함수 - 지정된 숫자값을 가진 Number객체를 생성한다.
+	let a = new Number(10);
+	let b = new Number("10");
+	let c = new Number("abc");
+	console.log(a);	//10
+	console.log(b);	//10
+	console.log(c);	//NaN
+	
+	// 		Number의 static 메소드 (실제로는 없지만 java의 static 동일하게 생각하기)
+	//			Number.isNan(value) - 지정된 value값이 NaN이면 true를 반환한다.
+	console.log(Number.isNaN(NaN));		// true
+	console.log(Number.isNaN(35));		// false
+	console.log(Number.isNaN('35'));	// false
+	
+	// 		Number의 instance 메소드
+	//			toLocalString() - 숫자를 지역화된 숫자형식으로 변환한다.
+	let a4 = new Number(1000000);		// '1,000,000'
+	console.log((10000000).toLocaleString());
+	
+	// Math 객체
+	// 		Math.abs(value)				- 절대값을 반환한다.
+	//		Math.round(value)			- 정수 1의 자리로 반올림된 값을 반환한다.
+	// 		Math.trunc(value)			- 소수점을 제외시킨 반환한다.
+	// 		Math.ceil(value)			- 천정값을 반환한다.
+	// 		Math.floor(value)			- 바닥값을 반환한다.
+	// 		Math.random(value)			- 난수를 반환한다.
+	// 		Math.min(x1, x2, x3, ...)	- 최소값을 반환한다.
+	// 		Math.max(x1, x2, x3, ...)	- 최대값을 반환한다.
+	console.log('abs ->', Math.abs(-100));		//100
+	console.log('round ->', Math.round(3.24));	//3
+	console.log('round ->', Math.round(4.76));	//5
+	console.log('trunc ->', Math.trunc(3.24)); 	//3
+	console.log('trunc ->', Math.trunc(4.76));	//4
+	
+	// Date 객체
+	// 		생성자 메소드
+	//			Date()
+	//			Date(유닉스 타임)
+	//			Date(year, month, day, hours, minutes, second, milliseconds)
+	//			Date(dateString)
+	
+	let b1 = new Date();						// 시스템의 현재 날자와 시간 정보를 포함하는 Date객체를 반환
+	let b2 = new Date(100000000000);			// 유닉스 타임에 해당하는 Date 객체를 반환
+	let b3 = new Date(2023, 05, 1, 13, 01, 55);	// 지정된 날짜와 시간을 표현하는 Date 객체를 반환
+	let b4 = new Date("2023-05-15 16:20:59");			// 지정된 날짜와 시간을 표현하는 Date 객체를 반환
+	console.log(b1);
+	console.log(b2);
+	console.log(b3);
+	console.log(b4);
+	
+	//		Date객체의 인스턴스 메소드
+	//			getFullYear(), setFullYear(year)	: 년도 조회, 설정한다.
+	//			getMonth()	 , setMonth(Month)		: 월조회, 설정한다. 1월이 0이다.
+	//			getDate()	 , setDate(date)		: 날짜 조회, 설정한다.
+	//			getDay()							: 요일 조회, 0이 일요일, 6이 토요일
+	//			getHours()	 , setHours(hours)		: 시간 조회, 설정
+	//			getMinutes() , setMinutes(minutes)	: 분 조회, 설정
+	//			getSeconds() , setScecons(seconds)	: 초 조회, 설정
+	//			getTime()							: 유닉스 타임을 조회
+	// 			toLocaleDateString()				: '2023. 6. 1.'
+	// 			toLocaleTimeString()				: '오전 11:26:59'
+	// 			toLocaleString()					: '2023. 6. 1. 오전 11:26:59'
+	
+	let b5 = new Date();
+	console.log(b5);
+	console.log(b5.getFullYear());
+	console.log(b5.getMonth());
+	console.log(b5.getDate());
+	console.log(b5.getHours());
+	console.log(b5.getMinutes());
+	console.log(b5.getSeconds());
+	console.log(b5.getTime());
+	console.log(b5.toLocaleDateString());
+	console.log(b5.toLocaleTimeString());
+	console.log(b5.toLocaleString());
+	
+	// String 객체
+	//		String객체의 프로퍼티
+	//			length 문자열의 길이를 반환한다.
+	// 		String객체의 instance 메소드
+	//		toUpperCase() 		- 대문자로 변환된 문자열을 반환한다.
+	//		toLowerCase()		- 소문자로 변환된 문자열을 반환한다.
+	//		serch(text)			- 문자열에서 지정된 텍스트가 등장하는 위치를 반환한다.
+	//		substr(start, length) - 지정된 위치에서 길이만큼 자른 문자열을 반환한다.
+	//		substring(start, end) - 지정된 범위에서 해당하는 자른 문자열을 반환한다.
+	//		startWith(text)		  - 문자열이 지정된 텍스트로 시작하면 true를 반환한다.
+	//		endWith(text)		  - 문자열이 지정된 텍스트로 끝나면 true를 반환한다.
+	//		replace(serchValue, newValue) - 문자열에 지정된 내용을 찾아서 새 내용으로 
+	//										변환한 문자열을 반환한다.
+	//		split(delim) 		  - 지정된 구분문자로 문자열을 나눠서 배열에 담아 반환한다.
+	//		trim()				  - 문자열의 좌우에 의미없는 공백이 제거된 문자열을 반환한다.
+	
+	let text = "length 문자열의 길이를 반환한다."
+	console.log(text.length)
+	
+	// 문자열의 비교
+	let text1 = "hong";
+	let text2 = "hong";
+	if (text1 == text2) {
+		console.log("두 문자열의 내용이 일치합니다.")
+	}	
+	if (text1 === text2) {
+		console.log("두 문자열의 내용이 일치합니다.")
+	}	
+	
+	// Array 객체
+	//		Array 객체의 프로퍼티
+	//			length - 배열의 길이를 반환한다.
+	//		Array 객체의 instance 메소드
+	// 			push(값) - 배열의 끝에 값을 추가한다.
+	// 		unshift(값) - 배열의 맨 앞에 값을 추가한다.
+	//		pop() - 배열의 끝에 값을 삭제하고, 그 값을 반환한다.
+	//		shift() - 배열의 맨 앞의 값을 삭제하고, 그 값을 반환한다.
+	//		at(index) - 배열에서 지정된 인덱스에 저장된 값을 반환한다.
+	//		splice(index, howmany, 값1, 값2, 값3)
+	//			- index는 값을 삭제 혹은 추가할 위치를 지정한다.
+	//			- howmany는 삭제할 값의 갯수를 지정한다. 0을 입력하면 삭제되지 않는다.
+	//			- 값1, 값2, 값은 새로 추가할 값이다.
+	//			- 예시
+	//					splice(3, 1) - 배열의 3번째 위치에서부터 1개 삭제한다.
+	//					splice(3, 0, 값) - 배열의 3번째 위치에 값을 추가한다.
+	//									   원래 3번째 위치에 있던 값은 한칸 뒤로 밀린다.
+	//		join(text) - 배열에 저장된 값을 지정된 텍스트를 구분자로 이어붙인 하나의 문자열
+	//		forEach(function(value, index) {...})
+	//		filter(function(value, index) {...})
+	//		find(function(value, index) {...})
+	//		map(function(value, index) {...})
+	//		reduce(function(value, index) {...}, intialValue)
+	let arr = [
+			   {name:"사과", price:15000},
+		       {name:"바나나", price:4000},
+		       {name:"수박", price:12000},
+		       {name:"딸기", price:8000}
+		       ];
+	// 배열의 모든 값 출력하기
+	arr.forEach(function(fruit, index) {
+		console.log(fruit.name, fruit.price);
+	});
+	
+	// 가격이 10000원 이상인 과일만 찾기
+	let arr2 = arr.filter(function(fruit, index){
+		return fruit.price >= 10000;
+	});
+	console.log(arr2);
+	
+	// 판매중인 과일을 이름을 모두 알아내기
+	let arr3 = arr.map(function(fruit, index) {
+		return fruit.name;
+	});
+	console.log(arr3);
+	
+	// 판매중인 과일의 총 가격을 알아내기
+	let totalPrice = arr.reduce(function(total, fruit) {
+		return total + fruit.price;
+	}, 0);
+	console.log(totalPrice);
+	
+	// 판매중인 과일을 가격순으로 정렬하기
+	arr.sort(function(prev, next) {
+		return prev.price - next.price;
+	});
+	console.log(arr);
+	
+	// 판매중인 과일을 가격순으로 내림차순 정렬하기
+	arr.reverse();
+	console.log(arr);
+	
+	
+	
+</script>
+</body>
+</html>

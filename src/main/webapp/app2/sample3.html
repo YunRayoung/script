@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Location 객체 실습하기</h1>
+	<div>
+		<button onclick="fn1();">현재 URL 조회하기</button>
+		<button onclick="fn2();">URL 변경하기</button>
+	</div>
+
+	<div>
+		<input type="text" id="url-field" placeholder="url을 입력하세요." />
+		<button onclick="fn3();">URL 변경하기</button>
+	</div>
+	
+	
+<script type="text/javascript">
+	function fn1() {
+		// 현재 주소창의 URL 조회하기
+		let url = location.href;
+		alert(url);
+	}
+	
+	function fn2() {
+		// 현재 주소창의 URL을 변경하기
+		location.href = "http://www.daum.net";
+	}
+	
+	function fn3() {
+		// 입력필드의 입력값 읽어오기
+		let urlText = document.querySelector("#url-field").value;
+		if (urlText == ""){
+			alert("url은 필수입력값입니다.")
+			document.querySelector("#url-field").focus();		// 포커스
+			return;
+		}
+		if (urlText.startsWith("http://")) {
+			location.href = urlText;
+		} else {
+			location.href = "http://" + urlText;
+		}
+	}
+	
+	// Location 객체
+	// 		Location 객체의 주요 프로퍼티
+	//			href - 주소창의 현재 url을 반환하거나 변경한다.
+	//			search - 현재 url의 queryString 값을 반환하거나 변경한다.
+	
+	//		Location 객체의 주요 메소드
+	//			reload() - 현재 페이지를 새로 고침시킨다.
+	//			assign(url) - 지정된 경로의 페이지를 로드한다.
+	//			replace(url) - 지정된 경로의 페이지로 변경한다.
+</script>
+</body>
+</html>

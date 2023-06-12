@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+	div {
+		margin-top: 16px;
+		padding: 16px;
+		border: 1px solid black;
+		
+	}
+</style>
+</head>
+<body>
+	<h1>html 컨텐츠 조회 및 변경, 추가, 삭제</h1>
+		
+		<h3>
+			html 컨텐츠 추가하기 
+			html 컨텐츠 추가하기 
+			<button onclick="fn1()">추가</button>
+			<button onclick="fn2()">추가</button>
+		</h3>
+		<div id="box-1"></div>
+		
+		<h3>
+			html 컨텐츠 삭제하기 
+			<button onclick="fn3()">첫번째 자식엘리먼트 삭제</button>
+			<button onclick="fn4()">두번째 자식엘리먼트 삭제</button>
+			<button onclick="fn5()">모든 자식 엘리먼트 삭제</button>
+		</h3>
+		<div id="box-2"></div>
+		
+		<div id="box-2">
+			<p>첫번째 내용입니다.</p>
+			<p>두번째 내용입니다.</p>
+			<p>세번째 내용입니다.</p>
+			<p>네번째 내용입니다.</p>
+			<p>다섯째 내용입니다.</p>
+		</div>
+		
+		<div id="box-3"></div>
+<script type="text/javascript">
+	function fn1() {
+		let content = `<p>내용입니다.</p>`;			//텍스트 형태의 HTML 컨텐츠
+		
+		let box1 = document.getElementById("box-1");
+		box1.innerHTML += content;
+	}
+	
+	function fn2() {
+		// p 엘리먼트를 생성함
+		let element = document.createElement("p");	// <p></p>
+		element.textContent = '새 내용입니다.';		// <p>새 내용입니다.</p>
+		
+		let box1 = document.getElementById("box-1")
+		box1.appendChild(element);
+	}
+	function fn3() {
+		// id="box-2"인 엘리먼트를 선택한다.
+		let box2 = document.getElementById("box-2")
+		// 위에서 선택한 엘리먼트의 자식 엘리먼트 중에서 첫번째 자식 엘리먼트를 조회한다.
+		let element = box2.firstElementChild;
+		// 위에서 선택한 첫번째 엘리먼트를 삭제한다.
+		element.remove();
+		
+	}
+	
+	function fn4() {
+		// id="box-2"인 엘리먼트를 선택한다.
+		let box2 = document.getElementById("box-2")
+		// 위에서 선택한 엘리먼트의 자식 엘리먼트 중에서 맨 마지막 자식 엘리먼트를 조회한다.
+		let element = box2.lastElementChild;
+		// 위에서 선택한 엘리먼트를 삭제한다.
+		element.remove();
+	}
+	
+	function fn5() {
+		let box2 = document.getElementById("box-2");
+		box3.innerHTML = "";
+	}
+</script>		
+		
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	// javascript의 데이터타입(데이터타입이 없는것이 아니라 동적으로 바뀌는 것)
+	
+	// 기본 타입(primitive type)
+	// 		boolean, number, string, undefined, symbol
+	
+	// 객체 타입(object type)
+	//		object
+	
+	// javascript의 연산자
+	// 산술연산자
+	// + - * / %
+	let a = 10;
+	let b = 4;
+	console.log(a/b); 		// 2.5 출력된다.
+	
+	// 증감연산자
+	// ++ -- 
+	let c = 10;
+	let d = 10;
+	let e = ++c;			// c의 값이 1증가되고, e에 값이 대입된다.
+	let f = d++;			// d의 값이 f에 대입되고, d의 값이 1증가된다.
+	console.log(e, c);		// 11, 11 출력
+	console.log(f, d);		// 10, 11 출력
+	
+	// 컴퓨터 연산에서 NaN(Not A Number)은 연산 과정에서 잘못된 입력을 받았음을 나타내는 기호이다. 
+	// 특히 부동소수점 연산에서 사용한다. 예를 들면 음수의 제곱근을 구하려고 하거나, 0으로 나누려고 했을 때 발생한다.
+	
+	// 대입연산자
+	// = += -= *= /= %=
+	
+	// 비교연산자
+	// == === != !== > >= < <=
+	// ==   : 값이 같으면 true다.
+	// ===  : 값도 같고, 타입도 같으면 true다. (값과 타입이 같아야함)
+	// !=	: 값이 다르면 true다.
+	// !==  : 값도 다르고 타입도 다르면 true다.
+	console.log("5" == '5', 5 == '5');		// true, 타입은 다르지만 묵시적 형변환 후 값이 같음
+	console.log("5" === '5', 5 === '5');	// false,(방지하기위해 === 선호함)
+	
+	console.log("5 != 6", 5 != 6); 			// true, 값이 다르다.
+	console.log("5 != 5", 5 != 5); 			// false, 값이 같다.
+	console.log("5 != '5'", 5 != '5'); 		// false, 값이 같다.
+	
+	console.log("5 !== 6", 5 !== 6);		// true, 값이 서로다르다.
+	console.log("5 !== '5'", 5 !== '5');	// true, 타입이 서로다르다.
+	
+	// 논리연산자
+	// && || !
+	// && 와 || 연산의 결과가 true나 false가 아닐 수도 있다.
+	// && 연산자
+	// 		좌항의 값이 false로 판정되면 좌항의 값이 연산의 결과다.
+	//		좌항의 값이 true로 판정되면 우항의 값이 연산의 결과다.
+	/*
+			false && true	-> false		false && false	-> false
+			true && true	-> true			true && false	-> false
+			
+			0&& x > 10 		-> 0
+			
+			if (name == "") {
+				alert("이름은 필수 입력값입니다.");
+			}
+			
+			if (!name) {
+				alert("이름은 필수 입력값입니다.");
+			}
+			
+			let x = 0;
+			let y = 100;
+			if (x && y > 10) {				// if(0) {}		-> 0 을 false로 판단 -> 0을 얻으려는 의도가 아님(조건식에서 0을 false로 판단)
+				
+			}
+	*/
+	
+	// || 연산자
+	// 		좌항의 값이 true로 판정되면 좌항의 값이 연산의 결과다.
+	// 		좌항의 값이 false로 판정되면 우항의 값이 연산의 결과다.
+	/*	
+			- or 연산자를 이용해서 x의 값에 다라서 x에 기본값 1이 대입되게 할 수있다.
+			let x = null;
+			- x의 값이 null, undefined, '', NaN, 0이면 x에는 1이 대입되고,
+			  x의 값이 위에 나열값이 아닐 때는 원래 x의 값이 대입된다.
+			x = x || 1;
+	*/
+	
+	console.log("javascript에서 true로 판정되는 것");	
+	console.log(true);								// true는 참으로 판정된다.
+	console.log(!!100);								// 100은 참으로 판정된다.	
+	console.log(!!-100);							// -100은 참으로 판정된다.
+	console.log(!!'가나다라');						// "가나다라"는 참으로 판정된다.
+	console.log(!![]);								// 빈 배열은 참으로 판정된다.
+	console.log(!![10, 20, 30]);					// 값을 가지고 있는 배열은 참으로 판정된다.
+	console.log(!!{});								// 빈 객체는 참으로 판정된다.
+	console.log(!!{n:"홍길동", p:"zxcv1234"});		// 프로퍼티를 가지고 있는 객체는 참으로 판정된다.
+	
+			
+	// 자바스크립트의 참과 거짓
+	// 		참으로 판정되는 것
+	//			true, 거짓으로 판정된 것을 제외한 모든 값
+	// 		거짓으로 판정되는 것
+	// 			false, 0, '', null, undefined, NaN
+	console.log("javascript에서 false로 판정되는것");
+	console.log(false);
+	console.log(!!0);
+	console.log(!!'');
+	console.log(!!null);
+	console.log(!!undefined);
+	console.log(!!NaN);
+	
+	// 삼항연산자
+	// 		조건식 ? 표현식1 : 표현식2
+	// 			조건식이 true로 판정되면 표현식1의 값이 최종 연산 결과다.
+	//			조건식이 false로 판정되면 표현식2의 값이 최종 연산 결과다.
+	
+	
+	
+</script>
+</body>
+</html>

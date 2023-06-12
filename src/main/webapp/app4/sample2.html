@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리</title>
+<style type="text/css">
+	#image-box img {
+		width: 100px;
+		height: 120px;
+	}
+	
+	.off {
+		opacity: 0.4;
+	}
+	
+	.on {
+		opacity: 1;
+	}
+</style>
+</head>
+<body>
+	<h1>마우스 이벤트</h1>
+	
+	<div id="image-box">
+		<img onmouseenter="fn1(event)" onmouseleave="fn2(event)" src="../resources/images/sample1.png" class="off" alt="고양이 사진" />
+		<img onmouseenter="fn1(event)" onmouseleave="fn2(event)" src="../resources/images/sample1.png" class="off" alt="고양이 사진" />
+		<img onmouseenter="fn1(event)" onmouseleave="fn2(event)" src="../resources/images/sample1.png" class="off" alt="고양이 사진" />
+		<img onmouseenter="fn1(event)" onmouseleave="fn2(event)" src="../resources/images/sample1.png" class="off" alt="고양이 사진" />
+		<img onmouseenter="fn1(event)" onmouseleave="fn2(event)" src="../resources/images/sample1.png" class="off" alt="고양이 사진" />
+	</div>
+<script type="text/javascript">
+	function fn1(e) {
+		let element = e.currentTarget;
+		element.classList.remove("off");
+		element.classList.add("on");
+	}
+	
+	function fn2(e) {
+		let element = e.currentTarget;
+		element.classList.remove("on");
+		element.classList.add("off");
+		
+	}
+</script>
+</body>
+</html>

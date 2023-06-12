@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>팝업창 입니다.</h1>
+	
+	<div>
+		<form>
+			<input type="text" id="text-field" />
+			<button type="button" onclick="fn2();">적용하기</button>
+		</form>
+	</div>
+	<div>
+		<button onclick="fn1();">닫기</button>
+	</div>
+<script type="text/javascript">
+	function fn1() {
+		// 현재 창 닫기
+		self.close();
+	}
+	
+	function fn2() {
+		// 입력필드의 값 읽어오기
+		let textValue = document.querySelector("#text-field").value;
+		
+		// 팝업을 생성한 창의 div에 입력필드의 값을 추가하기
+		opener.document.querySelector("#box").textContent = textValue;
+		
+		// 현재 창 닫기
+		self.close();
+	}
+</script>
+</body>
+</html>

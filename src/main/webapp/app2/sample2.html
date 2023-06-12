@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>윈도우 객체 실습</h1>
+	
+	<div>
+		<button id= "btn-1" onclick="fn1();">경고창 열기</button>
+		<button id= "btn-2" onclick="fn2();">확인창 열기</button>
+		<button id= "btn-3" onclick="fn3();">팝업창 열기</button>
+		<button id= "btn-4" onclick="fn4();">일회용 타이머 작동시키기</button>
+		<button id= "btn-5" onclick="fn5();">반복 타이머 작동시키기</button>
+		<button id= "btn-6" onclick="fn6();" disabled="disabled">반복 타이머 중지시키기</button>
+	</div>
+	<div id = "box" style="border: 1px solid black; margin-top:16px; padding: 10px;">메세지</div>
+	
+	<div style="border: qpx sold black; margin-top: 16px; padding: 10px;">메세지</div>
+	<div style="border: qpx sold black; margin-top: 16px; padding: 10px;">
+		입력1: <input type="number" id="num-1" value="0"><br/>
+		입력2: <input type="number" id="num-2" value="0"><br/>
+		결과3: <input type="number" id="num-3" value="0"><br/>
+		
+		<div>
+			<button onclick="fn7();">더하기</button>
+			<button onclick="fn8();">빼기</button>
+			<button onclick="fn9();">곱하기</button>
+			<button onclick="fn10();">나누기</button>
+		</div>
+	</div>
+	
+<script type="text/javascript">
+	let intervalTimerId;
+	
+	function fn1() {
+		// 경고창 열기
+		alert("경고창입니다.");		// window.alert / window 안 메소드라 생략가능
+	}
+	
+	function fn2() {
+		// 확인창 열기
+		let clickedValue = confirm("삭제하시겠습니까?");		// 값을 알아낼 수 있다.
+		document.querySelector("#box").textContent = clickedValue;
+	}
+	
+	function fn3() {
+		open("popup.html", "popup", "width=500,height=300")
+	}
+	
+	function fn4() {
+		// 일회용 타이머 실행시켜보기
+		setTimeout(function() {
+			alert("3초 후에 실행되었습니다.")
+		}, 3000);
+	}
+	
+	function fn5() {
+		
+		document.querySelector("#btn-5").disabled = true;
+		document.querySelector("#btn-6").disabled = false;
+		
+		// 일정 주기로 실행되는 타이머 생성하기
+		let el = document.querySelector("#box");
+		intervalTimerId = setInterval(function() {
+			el.textContent = new Date();
+		}, 1000);	
+	}
+	
+	function fn6() {
+		document.querySelector("#btn-5").disabled = false;
+		document.querySelector("#btn-6").disabled = true;
+		
+		clearInterval(intervalTimerId);
+	}
+	
+	function fn7() {
+		// 입력필드의 값 읽기
+		let value1 = document.querySelector("#num-1").value;		// 입력필드의 값 조회하기 읽어오기
+																	// value = "3"
+		let value2 = document.querySelector("#num-2").value;		// 입력필드의 값 조회하기 읽어오기
+																	// value = "2"
+		
+		
+		// 계산하기// 더하기일때만
+		let number1 = parseInt(value1);	// "3" -> 3
+		let number2 = parseInt(value1);	// "4" -> 4
+		
+		let result = number1 + number2;
+		
+		
+		// 입력필드의 값 변경하기
+		document.querySelector("#num-3").value = result;			// 상태읽어오기 =(우항) 설정// 대입연산
+	}
+	
+	function fn8() {
+		// 입력필드의 값 읽기
+		let value1 = document.querySelector("#num-1").value;		// 입력필드의 값 조회하기 읽어오기
+		let value2 = document.querySelector("#num-2").value;		// 입력필드의 값 조회하기 읽어오기
+																	
+		let result = value1 - value2;
+		document.querySelector("#num-3").value = result;	
+	}
+	
+	function fn9() {
+		
+	}
+	
+	function fn10() {
+		
+	}
+	
+</script>
+<script type="text/javascript">
+	// 브라우저 환경에서 제공하는 객체
+	// 전역객체(GLobal Object)
+	// BOM(Browser Object Model
+	// DOm(Doucment Object Model)
+	
+	// 전역객체
+	// 		모든 객체의 유일한 최상위 객체다.
+	//		Window객체다.
+	//		참조 변수Window로 참조할 수 있다.
+	//		Window객체에 저장된 것은 참조변수 없이 사용가능하다.
+	// 		자바스크립트에서 정의하는 모든 객체, 모든 변수, 모든 함수는 
+	//		 window 객체에 저장된다.
+	//		
+	//		BOM(브라우저 객체 모델)
+	//		 window				- 현재 브라우저 또는 탭을 표현하는 객체다.
+	//		 	document		- 현재 로드된 웹 페이지(HTML 문서)를 표현하는 객체다.
+	//			history			- 브라우저 히스토리에 기록된 웹페이지 방문 이력을 표현하는 객체다.
+	//			location		- 브라우저 주소창의 현재 URL을 표현하는 객체다.
+	//			navigator		- 브라우저 관련 정보를 표현하는 객체다.
+	//			screen			- 디스플레이 장치(모니터) 관련 정보를 표현하는 객체다.
+	
+	//		DOM(문서 객체 모델)
+	//		 문서 객체 모델은 현재 웹페이지를 표현한다.
+	//			Document 객체	- HTML 문서를 표현하는 객체다.
+	//			Element 객체	- 태그를 표현하는 객체다.
+	// 		 	Attributes 객체	- 태그의 속성을 표현하는 객체다.
+	//			Style 객체		- 태그의 스타일을 표현하는 객체다.
+	// 			Events 객체		- 이벤트를 표현하는 객체다.
+	
+	//		window 객체
+		//		window 객체의 주요 프로퍼티
+		//			self					- 현재창을 나타낸다.
+		//			opener					- 현재 팝업을 생성한 윈도우객체를 나타낸다.
+		//			console					- 콘솔창 출력에 필요한 a메소드가 포함된 콘솔객체를 반환한다.
+		//			document				- HTML Document객체를 반환한다.
+		// 			history					- History 객체를 반환한다.
+		//			location				- Location객체를 반환한다.
+		//			navigator				- Navigator 객체를 반환한다.
+		//			screen					- Screen객체를 반환한다.
+		// 		window 객체의 주요 메소드
+		//			alert(text)   			- 경고창을 표시한다.
+		//			confirm(text) 			- 확인창을 표시한다. 확인 / 취소 버튼 클릭여부를 확인할 수 있다.
+		//			open(url, name, specs)  - 새 창을 연다.
+		//			close()					- 현재 창을 닫는다.
+		// 			parseInt(텍스트)		- 텍스트를 정수로 변환해서 반환한다.
+		// 			parseFloat(텍스트)		- 텍스트를 실수로 변환해서 반환한다.
+		// 			setTimeout(콜백함수, 시간)	- 지정된 시간이 경과된 후 콜백함수가 한번 실행한다.
+		// 			setInterval(콜백함수, 시간)	- 지정된 시간이 경과될 때 마다 콜백함수가 실행된다.
+		//			clearTimeout(timeOutId) 	- 지정된 아이디를 가진 타이머를 실행 중지시킨다.
+		//			clearInterval(intervalId) 	- 지정된 아이디를 가진 타이머를 실행 중지시킨다.
+</script>
+</body>
+</html>
