@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리</title>
+</head>
+<body>
+	<h1>키보드 이벤트</h1>
+
+	<form action="insert.jsp" method="post">
+		<div>
+			<label>아이디</label>
+			<input type="text" id="user-id" name="userid"
+				onkeydown="fn1(event)" onkeypress="fn2(event)" onkeyup="fn3(event)" />
+		</div>
+	</form>
+	<script type="text/javascript">
+		function fn1(e) {
+			let key= e.key;
+			console.log("키값["+key+"]");
+			
+			if (key === 'pocess') {
+				cosole.log("prevent")
+				e.prventDefault;
+			}
+		}
+		function fn2(e) {
+		
+		}
+		function fn3(e) {
+			
+		}
+	</script>
+</body>
+</html>
