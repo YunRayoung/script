@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리</title>
+</head>
+<body>
+	<h1>폼 이벤트</h1>
+	
+	<form method="post" action="register.jsp" onsubmit="checkform(event)">
+		<div>
+			<label>이름</label><br />
+			<input type="text" name="name" id="user-name"/>
+		</div>
+		<div>
+			<label>보유 기술</label><br />
+			<input type="checkbox" name="skill" value="java" />자바
+			<input type="checkbox" name="skill" value="python" />파이썬
+			<input type="checkbox" name="skill" value="script" />자바스크립트
+			<input type="checkbox" name="skill" value="sql" />SQL
+			<input type="checkbox" name="skill" value="spring" />스프링
+			<input type="checkbox" name="skill" value="cloud" />클라우드
+		</div>
+		<div>
+			<button type="submit">등록</button>
+		</div>
+	</form>
+<script type="text/javascript">
+	function checkform(e){
+		// 이름체크
+		let nameEl = document.querySelector("#user-name"); // document.querySeletor("[name=name]")
+		let name = nameEl.value;
+		if (!name) {			// 길이가 0인 문자열 -> false => true
+			alert("이름은 필수입력값입니다.");
+			// onsubmit 이벤트에 대한 form 엘리먼트의 기본동작(서버로 폼 입력값 제출)이 실행되지 않게 한다.
+			e.preventDefault();
+		}
+		
+		//if (name === "") {			// 길이가 0인 문자열 -> false => true
+		//	alert("이름은 필수입력값입니다.");
+		//}
+		// 보유기술 체크
+		// name="skill" 인 모든 엘리먼트를 조회한다.
+		let skillEls = document.querySelectorAll("[name=skill]");
+		// 보유 기술 체크여부를 저장하는 변수를 생성한다.
+		let isChecked = false;
+		// skillEls에 포함된 모든 checkbox를 하나씩 순회하면서 체크여부를 조사한다.
+		skillEls.forEach(function(el) {
+			console.log(el, el.checked)
+			if(el.checked) {
+				isChecked = true;
+			}
+		});
+		console.log("최종 결과 -> ", isChecked);
+		if (!isChecked) {
+			alert("보유 기술은 하나 이상 체크해야 합니다.")
+			e.preventDefault();
+		}
+			
+		
+		
+	}
+</script>
+</body>
+</html>

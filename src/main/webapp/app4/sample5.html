@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>이벤트 처리</title>
+</head>
+<body>
+	<h1>키보드 이벤트</h1>
+
+	<form action="insert.jsp" method="post">
+		<div>
+			<label>아이디</label>
+			<input type="text" id="user-id" name="userid" onkeyup="fn1(event)"  />
+		</div>
+	</form>
+	<script type="text/javascript">
+		function fn1(e) {
+			// 지금 입력한 값 조회
+			// console.log("key -> " , e.key);
+			
+			// 입렵필드의 값 읽기
+			 let value = e.currentTarget.value;
+			// console.log("value -> ", value);
+			
+			// 숫자/영문자가 아닌 것을 포함되어 있는지 체크하기
+			// 숫자/영문자가 아닌 것을 표현하는 정규표현식 작성
+			// 자바스크립트에서 /표현식/은 정규표현식 리터럴이다.
+			// 정규표혀식 리터럴은 정규표현식 객체를 생성한다.
+			let regExp = /[^0-9a-zA-Z]/g
+			// console.log(regExp.test(value));
+			if (regExp.test(value)) { // 값이 true로 판정되면 숫자.영문자가 아닌 문자가 포함되어 있음
+				// 정규표현식의 패턴에 해당하는 값을 ""로 변경한다.
+				value.replace(regExp, "");
+				console.log("변환 후 -> ", value);
+				e.currentTarget.value = value;
+
+				// String text = "red car's color is red";
+				// text.replace("red", "green");
+				// text -> "green car's color is green" -> 자바
+				
+				// let text = "red car's color is red";
+				// text.replace("red", "green");
+				// text -> "green car's color is red" -> 자바스크립트
+			}
+		}
+	</script>
+</body>
+</html>
